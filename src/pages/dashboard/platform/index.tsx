@@ -1,28 +1,45 @@
-import { Image, Table } from "antd";
+import { Image, Input, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState,AppDispatch } from  '@/libs/redux/store'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchPlatform } from "@/libs/redux/slices/platformSlice";
 import format from "@/hooks/dayjsformatter";
 import { useRouter } from "next/router";
 import DashBoardLayout from "@/components/admin/DashBoardLayout";
 import { GetStaticPropsContext } from "next";
+import { useTranslations } from "next-intl";
+import { Platform } from "@/@type";
+import  lodash from "lodash"
 const Page = ()=>{
     const dispatch = useDispatch();
     const router =  useRouter();
+    const t = useTranslations("MyLanguage")
     const {platforms, isPending, isError, isSuccess} = useSelector((state:RootState)=>state.platformSlice)
+    const [platformData,setPlatformData] = useState<Platform[]>([])
+    const handleSearch = (e:any)=>{
+      const results:Platform[] = [];
+      platforms.map((i)=>{
+        if(i.name.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())){
+          results.push(i)
+        }
+      })
+      setPlatformData(results)
+    }
     useEffect(()=>{
-        dispatch(fetchPlatform());
-    }, [dispatch])
+        if(platformData?.length == 0){
+          dispatch(fetchPlatform());
+        setPlatformData(platforms)
+        }
+    }, [isPending])
       
       const columns = [
         {
-          title: 'No.',
+          title: t('entryno'),
           dataIndex: 'key',
           key: 'key',
         },
         {
-          title: 'Name',
+          title: t('name'),
           dataIndex: 'name',
           key: 'name',
         },
@@ -39,7 +56,7 @@ const Page = ()=>{
           }
         },
         {
-          title: 'Created At',
+          title: t('createAt'),
           dataIndex: 'createdAt',
           key: 'createdAt',
           render:(text:string)=>(<>
@@ -50,7 +67,11 @@ const Page = ()=>{
   return(
     <>
     <DashBoardLayout>
-    <Table dataSource={platforms} columns={columns} loading={isPending}/>
+      <div className="py-2">
+      <Input placeholder="Search..." onChange={handleSearch} style={{width:200}}/>
+      </div>
+      
+    <Table dataSource={platformData} columns={columns} loading={isPending}/>
     </DashBoardLayout>
     </>
     ); 

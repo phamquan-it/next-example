@@ -19,13 +19,13 @@ const options:LocaleOption[] = [
         key:2,
         value: "vi",
         label:  (<div className="flex items-center gap-1">
-        <Image src="/vi.png" alt="" width={25}/> <span>Tiếng việt</span>
+        <Image src="/vi.png" alt="" width={25} preview={false}/> <span>Tiếng việt</span>
         </div>)
     }
 ]
 const LocaleSwitcher = ()=>{
     const router = useRouter()
-  return <Select style={{width:150}} options={options} defaultValue="en" onChange={(value)=>{
+  return <Select style={{width:150}} options={options} defaultValue={router.locale} onChange={(value)=>{
     router.push(router, "",{locale: value})
   }}/>
 } 

@@ -32,7 +32,7 @@ const LoginForm = () => {
       toast.success("Success")
       setCookie("token",data.data.token);
       setCookie("refresh_token",data.data.refresh_token);
-      router.push("/")
+      router.push("/dashboard")
     },
     onError:(err)=>{
       console.log(err);
