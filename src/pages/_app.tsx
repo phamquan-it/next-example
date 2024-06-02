@@ -7,7 +7,6 @@ import { ConfigProvider } from "antd";
 import { NextIntlClientProvider } from "next-intl";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { ToastContainer } from 'react-toastify';
 import NextProgress from "next-progress";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -25,8 +24,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <ConfigProvider theme={theme}>
           <NextProgress delay={300} options={{ showSpinner: false }} />
           <Component {...pageProps} />
-          {/* add toastify */}
-          <ToastContainer />
         </ConfigProvider>
       </ReactQueryProvider>
     </ReduxProvider>

@@ -1,6 +1,7 @@
 import { Table } from "antd";
 
 const Page = ()=>{
+  
     const dataSource = [
         {
           key: '1',
@@ -42,3 +43,5 @@ const Page = ()=>{
     ); 
 } 
  export default Page
+
+ 

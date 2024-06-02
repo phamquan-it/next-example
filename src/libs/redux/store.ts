@@ -2,11 +2,12 @@
 import { ThunkAction, configureStore,Action } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import someSliceReducer from './slices/someSlice';
-import itemsReducer from './slices/itemsSlice';
-
+import platformSliceReducer from  './slices/platformSlice'
+import authenlicationReducer from './slices/authenlicationSlice';
 const rootReducer = combineReducers({
   someSlice: someSliceReducer,
-  items:  itemsReducer
+  platformSlice: platformSliceReducer,
+  authSlice: authenlicationReducer,
 });
 
 const store = configureStore({
@@ -16,5 +17,5 @@ const store = configureStore({
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>;
+export type AppThunk<ReturnType = any> = ThunkAction<ReturnType, RootState, unknown, Action<string>>;
 export default store;

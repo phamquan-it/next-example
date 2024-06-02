@@ -1,4 +1,23 @@
 {
+  "Authenlication": {
+    "donothaveanacount": "Do not have an account?",
+    "rpassword": "Confirm password",
+    "gotohomepage": "Go to home page",
+    "username": "Username",
+    "password": "Password",
+    "login": "Login",
+    "register": "Register",
+    "forgot": "Forgot password?",
+    "fullname": "Full name",
+    "requiredFullname": "Fullname is required!",
+    "requiredEmail": "Please enter your email!",
+    "email": "Email",
+    "requiredpassword": "Password is required!",
+    "confirmpassword": "Confirm password is required!",
+    "confirmpasswordError": "Confirm password is not match!",
+    "success": "Success!",
+    "min5char": "Password should have at least 5 characters"
+  },
   "Index": {
     "title": "Home",
     "description": "This is the home page."
@@ -8,5 +27,49 @@
   },
   "PageLayout": {
     "pageTitle": "next-intl"
+  },
+  "DashboardMenu": {
+    "home": "Home",
+    "services": "Services",
+    "contact": "Contact",
+    "platform": "Platforms",
+    "category": "Categories",
+    "refund": "Refund",
+    "order": "Orders",
+    "user": "Users",
+    "userprofile": "User profile",
+    "Settings": "Settings",
+    "neworder": "New order",
+    "funds": "Funds",
+    "payment": "Payments",
+    "paymenthistory": "Payment history"
+  },
+  "MyLanguage": {
+    "entryno": "STT",
+    "role": "Vai trò",
+    "createAt": "Ngày tạo",
+    "name": "Name",
+    "location": "Location",
+    "createat": "Create At",
+    "updateat": "Update At",
+    "action": "Action",
+    "areyousure": "Are you sure?",
+    "delete": "Delete",
+    "service": "Service",
+    "mailUser": "Mail user",
+    "createneworder": "Create new order",
+    "updateorder": "Update order info",
+    "createnewuser": "Create new user",
+    "accept": "Accept",
+    "cancel": "Cancel",
+    "searchplh": "Search...",
+    "chooseanuser": "Choose an user...",
+    "link": "Link",
+    "totalmoney": "Total monney",
+    "fund": "Fund",
+    "isactive": "Is Active",
+    "quantity": "Quantity",
+    "status": "Status",
+    "remains": "Remains"
   }
 }

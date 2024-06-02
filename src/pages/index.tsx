@@ -1,14 +1,16 @@
 import { Inter } from "next/font/google";
 import { GetStaticPropsContext } from "next";
 import PageLayout from "@/components/PageLayout";
-import LocaleSwitcher from "@/components/LocaleSwitcher";
 import { useTranslations } from "next-intl";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/libs/redux/store";
 import { increment, decrement, incrementByAmount } from '../libs/redux/slices/someSlice';
 import { Button, Menu } from "antd";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/router";
+import LocaleSwitcher from "@/components/general/LocaleSwitcher";
+import PlatformSelect from "@/components/general/PlatformSelect";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -32,8 +34,6 @@ export default function Home() {
     >
        <PageLayout title={t('title')}>
       <p>{t('description')}</p>
-      <LocaleSwitcher />
-
       <div>
       <Button type="primary">Button</Button>
       <h1>Value: {value}</h1>
@@ -43,15 +43,15 @@ export default function Home() {
     </div>
     <p>{d('pageTitle')}</p>
     </PageLayout>
-   
+    <ToastContainer/>
     <Menu items={items} />
     <Button type="primary" onClick={()=>{
       toast.success("successfully");
     }}>Success</Button>
+    
     <Button type="default" onClick={()=>{
       router.push("/login")
     }}>Login</Button>
-    
     </main>
   );
 }
